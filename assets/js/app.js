@@ -143,11 +143,19 @@
   if (musicBtn) {
     if (!Music || !C.music.enabled) musicBtn.hidden = true;
     else musicBtn.addEventListener('click', function () {
-      var on = Music.toggle(); setPref(on ? 'on' : 'off'); syncMusicBtn();
-      toast(on ? 'تم تشغيل الموسيقى' : 'تم إيقاف الموسيقى');
+      if (Music.playing) {
+        Music.pause(); setPref('off'); syncMusicBtn(); toast('تم إيقاف الموسيقى');
+      } else {
+        setPref('on');
+        Music.play().then(function (ok) {
+          syncMusicBtn();
+          toast(ok ? 'تم تشغيل الموسيقى' : 'تعذّر تشغيل الأغنية؛ حاول مرة أخرى');
+        });
+      }
     });
   }
-  if (Music) Music.setVolume(C.music.volume || 0.22);
+  doc.addEventListener('weddingmusicchange', syncMusicBtn);
+  if (Music) Music.setVolume(C.music.volume == null ? 0.65 : C.music.volume);
 
   /* ------------------------------------------------ 6. envelope opening (Scene 01) */
   var scene = $('#envelopeScene'), main = $('#main'), dock = $('#dock');
@@ -176,7 +184,12 @@
   }
   function openInvitation() {
     if (opened) return; opened = true;
-    if (Music && C.music.enabled && !prefOff()) { Music.play(); syncMusicBtn(); }
+    if (Music && C.music.enabled && !prefOff()) {
+      Music.play().then(function (ok) {
+        syncMusicBtn();
+        if (!ok) toast('اضغط على زر الموسيقى لتشغيل الأغنية');
+      });
+    }
     if (!scene) return finish();
     if (reduceMotion) { scene.classList.add('is-leaving'); setTimeout(finish, 60); return; }
     scene.classList.add('is-opening');
