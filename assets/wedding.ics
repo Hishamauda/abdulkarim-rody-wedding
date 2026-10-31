@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//abdulkarim-rody-wedding//invitation//AR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:abdulkarim-rody-2026-11-12@hishamauda.github.io
+DTSTAMP:20261031T140816Z
+DTSTART:20261112T140000Z
+DTEND:20261112T190000Z
+SUMMARY:زفاف عبد الكريم & رودي
+LOCATION:قاعة روفان، غزة – بجوار برج الشفاء
+DESCRIPTION:يسعدنا دعوتكم لحفل زفاف عبد الكريم
+  & رودي — الخميس 12 نوفمبر 2026، قاعة روفان.\n
+ https://hishamauda.github.io/abdulkarim-rody-wedding/
+URL:https://hishamauda.github.io/abdulkarim-rody-wedding/
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:غدًا زفاف عبد الكريم & رودي
+END:VALARM
+END:VEVENT
+END:VCALENDAR

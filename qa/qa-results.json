@@ -1,0 +1,548 @@
+{
+ "base": "http://127.0.0.1:8765/",
+ "date": "2026-10-31T14:25:09.536Z",
+ "ok": 90,
+ "total": 90,
+ "results": [
+  {
+   "group": "360px",
+   "name": "Envelope scene visible on load",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Content inert before opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Envelope opens and is removed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Content interactive after opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Focus moved to names heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Names writing animation runs",
+   "ok": true,
+   "detail": "write, sheen"
+  },
+  {
+   "group": "360px",
+   "name": "Couple names fully inside the viewport (not clipped)",
+   "ok": true,
+   "detail": "[[73,287],[171,189],[95,265]]"
+  },
+  {
+   "group": "360px",
+   "name": "No horizontal scrolling",
+   "ok": true,
+   "detail": "scrollWidth 360 / viewport 360"
+  },
+  {
+   "group": "360px",
+   "name": "No console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "All assets loaded (no 4xx/5xx)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Touch targets ≥ 44×44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Envelope scene visible on load",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Content inert before opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Envelope opens and is removed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Content interactive after opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Focus moved to names heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Names writing animation runs",
+   "ok": true,
+   "detail": "write, sheen"
+  },
+  {
+   "group": "390px",
+   "name": "Couple names fully inside the viewport (not clipped)",
+   "ok": true,
+   "detail": "[[79,311],[186,204],[103,287]]"
+  },
+  {
+   "group": "390px",
+   "name": "No horizontal scrolling",
+   "ok": true,
+   "detail": "scrollWidth 390 / viewport 390"
+  },
+  {
+   "group": "390px",
+   "name": "No console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "All assets loaded (no 4xx/5xx)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Performance",
+   "name": "Total transfer size (390px run)",
+   "ok": true,
+   "detail": "379 KB"
+  },
+  {
+   "group": "390px",
+   "name": "Touch targets ≥ 44×44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Envelope scene visible on load",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Content inert before opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Envelope opens and is removed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Content interactive after opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Focus moved to names heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Names writing animation runs",
+   "ok": true,
+   "detail": "write, sheen"
+  },
+  {
+   "group": "430px",
+   "name": "Couple names fully inside the viewport (not clipped)",
+   "ok": true,
+   "detail": "[[87,343],[205,225],[114,316]]"
+  },
+  {
+   "group": "430px",
+   "name": "No horizontal scrolling",
+   "ok": true,
+   "detail": "scrollWidth 430 / viewport 430"
+  },
+  {
+   "group": "430px",
+   "name": "No console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "All assets loaded (no 4xx/5xx)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Touch targets ≥ 44×44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Envelope scene visible on load",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Content inert before opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Envelope opens and is removed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Content interactive after opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Focus moved to names heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Names writing animation runs",
+   "ok": true,
+   "detail": "write, sheen"
+  },
+  {
+   "group": "768px",
+   "name": "Couple names fully inside the viewport (not clipped)",
+   "ok": true,
+   "detail": "[[377,627],[344,372],[141,339]]"
+  },
+  {
+   "group": "768px",
+   "name": "No horizontal scrolling",
+   "ok": true,
+   "detail": "scrollWidth 768 / viewport 768"
+  },
+  {
+   "group": "768px",
+   "name": "No console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "All assets loaded (no 4xx/5xx)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Touch targets ≥ 44×44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Envelope scene visible on load",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Content inert before opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Envelope opens and is removed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Content interactive after opening",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Focus moved to names heading",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Names writing animation runs",
+   "ok": true,
+   "detail": "write, sheen"
+  },
+  {
+   "group": "1440px",
+   "name": "Couple names fully inside the viewport (not clipped)",
+   "ok": true,
+   "detail": "[[696,1109],[663,691],[331,658]]"
+  },
+  {
+   "group": "1440px",
+   "name": "No horizontal scrolling",
+   "ok": true,
+   "detail": "scrollWidth 1440 / viewport 1440"
+  },
+  {
+   "group": "1440px",
+   "name": "No console errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "All assets loaded (no 4xx/5xx)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Touch targets ≥ 44×44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Content",
+   "name": "Every approved Arabic text is present verbatim",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Content",
+   "name": "Parents’ names and kunyas exact",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Content",
+   "name": "No gifts / payments / bank / wallet / QR anywhere",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Content",
+   "name": "All bound texts equal config.js",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "group": "Date",
+   "name": "Ceremony start = 12-11-2026 16:00 Asia/Gaza (14:00 UTC)",
+   "ok": true,
+   "detail": "2026-11-12T14:00:00.000Z"
+  },
+  {
+   "group": "Date",
+   "name": "Day of the week is Thursday (الخميس)",
+   "ok": true,
+   "detail": "الخميس"
+  },
+  {
+   "group": "Date",
+   "name": "Numeric date isolated LTR (cannot flip to 2026-11-12)",
+   "ok": true,
+   "detail": "ltr 12-11-2026"
+  },
+  {
+   "group": "Countdown",
+   "name": "Live countdown matches time to 16:00 Gaza",
+   "ok": true,
+   "detail": "11:23:35:13 (expected days 11)"
+  },
+  {
+   "group": "Countdown",
+   "name": "Countdown ticks every second",
+   "ok": true,
+   "detail": "13 → 12"
+  },
+  {
+   "group": "Timeline",
+   "name": "4 approved timeline entries in order",
+   "ok": true,
+   "detail": "4:00 مساءً بداية مراسم حفل الزفاف / 4:30 مساءً دخول العروسين / 5:00 مساءً مراسم تبديل المحابس / 5:15 مساءً فقرات حفل الزفاف"
+  },
+  {
+   "group": "Timeline",
+   "name": "Gold line lights up progressively while scrolling",
+   "ok": true,
+   "detail": "--p 0.66 → 1.00, lit 4"
+  },
+  {
+   "group": "Venue",
+   "name": "Google Maps opens a text search for the venue (no invented coordinates)",
+   "ok": true,
+   "detail": "https://www.google.com/maps/search/?api=1&query=قاعة روفان، بجوار برج الشفاء، غزة"
+  },
+  {
+   "group": "Calendar",
+   "name": "Save-the-date menu opens",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Calendar",
+   "name": "Google Calendar link has the right UTC times",
+   "ok": true,
+   "detail": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D8%B2%D9%81%D8%A7%D9%81%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85%20%26%20%D"
+  },
+  {
+   "group": "Calendar",
+   "name": ".ics file served and correct",
+   "ok": true,
+   "detail": "200 text/calendar"
+  },
+  {
+   "group": "Share",
+   "name": "Without Web Share API the link is copied + confirmation toast",
+   "ok": true,
+   "detail": "تم نسخ رابط الدعوة / https://hishamauda.github.io/abdulkarim-rody-wedding/"
+  },
+  {
+   "group": "Navigation",
+   "name": "Bottom nav scrolls to the programme",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Navigation",
+   "name": "Active nav item announced (aria-current)",
+   "ok": true,
+   "detail": "location"
+  },
+  {
+   "group": "Navigation",
+   "name": "Bottom nav scrolls to the venue",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Music",
+   "name": "Music toggles (started by the guest’s tap on “open”, button switches it)",
+   "ok": true,
+   "detail": "true → false"
+  },
+  {
+   "group": "Console",
+   "name": "No console errors during functional run",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Share",
+   "name": "Web Share API used when available (title, text, url)",
+   "ok": true,
+   "detail": "{\"title\":\"عبد الكريم & رودي — دعوة زفاف\",\"text\":\"يسعدنا دعوتكم لحفل زفاف عبد الكريم & رودي — الخميس 12 نوفمبر 2026، قاعة روفان.\",\"url\":\"https://hishamauda.github.io/abdulkarim-rody-wedding/\"}"
+  },
+  {
+   "group": "Music",
+   "name": "No music before the guest interacts",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Keyboard",
+   "name": "Invitation opens with the keyboard (Enter on focused button)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Keyboard",
+   "name": "Tab reaches buttons, links and the bottom nav",
+   "ok": true,
+   "detail": "scroll-cue → mapsLink → calendarToggle → home → venue → program → shareButton → musicButton → BODY → skip-link → scroll-cue → mapsLink → calendarToggle → home"
+  },
+  {
+   "group": "Keyboard",
+   "name": "Visible focus indicator",
+   "ok": true,
+   "detail": "solid"
+  },
+  {
+   "group": "Accessibility",
+   "name": "prefers-reduced-motion: instant open, no masking/parallax",
+   "ok": true,
+   "detail": "[true,\"none\"]"
+  },
+  {
+   "group": "Countdown",
+   "name": "At 16:00 Gaza the countdown turns into the welcome message",
+   "ok": true,
+   "detail": "حان موعد الفرح... أهلاً بكم في ليلتنا."
+  },
+  {
+   "group": "Contrast",
+   "name": "Espresso text on Ivory",
+   "ok": true,
+   "detail": "14.05:1 (min 4.5)"
+  },
+  {
+   "group": "Contrast",
+   "name": "Soft text #5A4A3D on Pearl",
+   "ok": true,
+   "detail": "7.40:1 (min 4.5)"
+  },
+  {
+   "group": "Contrast",
+   "name": "Gold-ink #8A6A35 small text on Ivory",
+   "ok": true,
+   "detail": "4.72:1 (min 4.5)"
+  },
+  {
+   "group": "Contrast",
+   "name": "Gold-deep #6E5328 on Pearl",
+   "ok": true,
+   "detail": "6.26:1 (min 4.5)"
+  },
+  {
+   "group": "Contrast",
+   "name": "Antique gold #A88348 (large display only) on Ivory",
+   "ok": true,
+   "detail": "3.30:1 (min 3)"
+  },
+  {
+   "group": "Contrast",
+   "name": "Button text on gold-ink",
+   "ok": true,
+   "detail": "4.93:1 (min 4.5)"
+  }
+ ]
+}
