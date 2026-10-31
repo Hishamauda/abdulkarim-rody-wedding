@@ -20,7 +20,7 @@ window.WEDDING = {
   },
 
   families: {
-    groomFather: { name: "محمد عبد الكريم بستان", kunya: "أبو عبد الكريم" },
+    groomFather: { name: "عبدالله محمد بستان", kunya: "أبو محمد" },
     brideFather: { name: "كمال أمين النفار", kunya: "أبو أمين" },
   },
 
@@ -80,8 +80,25 @@ window.WEDDING = {
   ],
 
   music: {
-    // موسيقى هادئة مُولَّدة داخل المتصفح (تأليف أصلي بالكود — لا ملفات صوتية بحقوق)
+    // أغنية الزفاف الرسمية — الملف الأصلي كما أُرسل دون أي تعديل
+    src: "assets/audio/abdulkarim-rody-wedding-song.mp3",
+    title: "أغنية زفاف عبد الكريم & رودي",
     enabled: true,
-    volume: 0.22,
+    volume: 1,
+  },
+
+  // قسم التهنئة الختامي (A Royal Congratulations) — يُضاف بعد جميع أقسام الدعوة
+  congrats: {
+    opening: "بكل المحبة والتقدير",
+    headline: "أسمى آيات التهاني والتبريكات",
+    couple: "للعروسين عبد الكريم ورودي",
+    families: "ولعائلتيهما الكريمتين",
+    prayer: "سائلين المولى عز وجل أن يبارك لهما، ويجمع بينهما على خير، ويديم عليهما المودة والرحمة.",
+  },
+  signature: {
+    company: "INFINITI",
+    companyLine: "TECHNOLOGIES",
+    engineer: "المهندس / هشام عوده",
+    kunya: "أبو عمر",
   },
 };

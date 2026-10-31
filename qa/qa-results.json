@@ -1,8 +1,8 @@
 {
  "base": "http://127.0.0.1:8765/",
- "date": "2026-10-31T14:25:09.536Z",
- "ok": 90,
- "total": 90,
+ "date": "2026-10-31T17:38:06.642Z",
+ "ok": 124,
+ "total": 124,
  "results": [
   {
    "group": "360px",
@@ -45,6 +45,36 @@
    "name": "Couple names fully inside the viewport (not clipped)",
    "ok": true,
    "detail": "[[73,287],[171,189],[95,265]]"
+  },
+  {
+   "group": "360px",
+   "name": "Wedding song starts with the opening tap",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "INFINITI signature texts exact",
+   "ok": true,
+   "detail": "INFINITI TECHNOLOGIES | المهندس / هشام عوده «أبو عمر»"
+  },
+  {
+   "group": "360px",
+   "name": "Congratulations section is the last section, after the finale, not overlapping",
+   "ok": true,
+   "detail": "congrats"
+  },
+  {
+   "group": "360px",
+   "name": "Congratulations section within the viewport width and fully revealed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "360px",
+   "name": "Congratulations section keeps the site background (no dark/new background)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)"
   },
   {
    "group": "360px",
@@ -114,6 +144,36 @@
   },
   {
    "group": "390px",
+   "name": "Wedding song starts with the opening tap",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "INFINITI signature texts exact",
+   "ok": true,
+   "detail": "INFINITI TECHNOLOGIES | المهندس / هشام عوده «أبو عمر»"
+  },
+  {
+   "group": "390px",
+   "name": "Congratulations section is the last section, after the finale, not overlapping",
+   "ok": true,
+   "detail": "congrats"
+  },
+  {
+   "group": "390px",
+   "name": "Congratulations section within the viewport width and fully revealed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "390px",
+   "name": "Congratulations section keeps the site background (no dark/new background)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "group": "390px",
    "name": "No horizontal scrolling",
    "ok": true,
    "detail": "scrollWidth 390 / viewport 390"
@@ -132,9 +192,9 @@
   },
   {
    "group": "Performance",
-   "name": "Total transfer size (390px run)",
+   "name": "First load before opening (the song streams only after the tap)",
    "ok": true,
-   "detail": "379 KB"
+   "detail": "380 KB"
   },
   {
    "group": "390px",
@@ -183,6 +243,36 @@
    "name": "Couple names fully inside the viewport (not clipped)",
    "ok": true,
    "detail": "[[87,343],[205,225],[114,316]]"
+  },
+  {
+   "group": "430px",
+   "name": "Wedding song starts with the opening tap",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "INFINITI signature texts exact",
+   "ok": true,
+   "detail": "INFINITI TECHNOLOGIES | المهندس / هشام عوده «أبو عمر»"
+  },
+  {
+   "group": "430px",
+   "name": "Congratulations section is the last section, after the finale, not overlapping",
+   "ok": true,
+   "detail": "congrats"
+  },
+  {
+   "group": "430px",
+   "name": "Congratulations section within the viewport width and fully revealed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "430px",
+   "name": "Congratulations section keeps the site background (no dark/new background)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)"
   },
   {
    "group": "430px",
@@ -252,6 +342,36 @@
   },
   {
    "group": "768px",
+   "name": "Wedding song starts with the opening tap",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "INFINITI signature texts exact",
+   "ok": true,
+   "detail": "INFINITI TECHNOLOGIES | المهندس / هشام عوده «أبو عمر»"
+  },
+  {
+   "group": "768px",
+   "name": "Congratulations section is the last section, after the finale, not overlapping",
+   "ok": true,
+   "detail": "congrats"
+  },
+  {
+   "group": "768px",
+   "name": "Congratulations section within the viewport width and fully revealed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "768px",
+   "name": "Congratulations section keeps the site background (no dark/new background)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "group": "768px",
    "name": "No horizontal scrolling",
    "ok": true,
    "detail": "scrollWidth 768 / viewport 768"
@@ -315,6 +435,36 @@
    "name": "Couple names fully inside the viewport (not clipped)",
    "ok": true,
    "detail": "[[696,1109],[663,691],[331,658]]"
+  },
+  {
+   "group": "1440px",
+   "name": "Wedding song starts with the opening tap",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "INFINITI signature texts exact",
+   "ok": true,
+   "detail": "INFINITI TECHNOLOGIES | المهندس / هشام عوده «أبو عمر»"
+  },
+  {
+   "group": "1440px",
+   "name": "Congratulations section is the last section, after the finale, not overlapping",
+   "ok": true,
+   "detail": "congrats"
+  },
+  {
+   "group": "1440px",
+   "name": "Congratulations section within the viewport width and fully revealed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "1440px",
+   "name": "Congratulations section keeps the site background (no dark/new background)",
+   "ok": true,
+   "detail": "rgba(0, 0, 0, 0)"
   },
   {
    "group": "1440px",
@@ -386,13 +536,13 @@
    "group": "Countdown",
    "name": "Live countdown matches time to 16:00 Gaza",
    "ok": true,
-   "detail": "11:23:35:13 (expected days 11)"
+   "detail": "11:20:24:17 (expected days 11)"
   },
   {
    "group": "Countdown",
    "name": "Countdown ticks every second",
    "ok": true,
-   "detail": "13 → 12"
+   "detail": "17 → 16"
   },
   {
    "group": "Timeline",
@@ -455,10 +605,40 @@
    "detail": ""
   },
   {
-   "group": "Music",
-   "name": "Music toggles (started by the guest’s tap on “open”, button switches it)",
+   "group": "Song",
+   "name": "Song playing after opening (real media state, button pressed)",
    "ok": true,
-   "detail": "true → false"
+   "detail": "{\"n\":1,\"loop\":true,\"paused\":false,\"t\":10.765178,\"st\":\"playing\",\"pressed\":\"true\"}"
+  },
+  {
+   "group": "Song",
+   "name": "Exactly one audio element, loop enabled",
+   "ok": true,
+   "detail": "{\"n\":1,\"loop\":true,\"paused\":false,\"t\":10.765178,\"st\":\"playing\",\"pressed\":\"true\"}"
+  },
+  {
+   "group": "Song",
+   "name": "Pause stops the song and the button shows it",
+   "ok": true,
+   "detail": "{\"paused\":true,\"t\":10.803849,\"st\":\"paused\",\"pressed\":\"false\"}"
+  },
+  {
+   "group": "Song",
+   "name": "Resume continues from the same position",
+   "ok": true,
+   "detail": "10.80s → 12.11s"
+  },
+  {
+   "group": "Song",
+   "name": "Only one sound at a time",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Song",
+   "name": "MP3 served (audio/mpeg) and decodable",
+   "ok": true,
+   "detail": "200 audio/mpeg 6328370"
   },
   {
    "group": "Console",
@@ -473,10 +653,34 @@
    "detail": "{\"title\":\"عبد الكريم & رودي — دعوة زفاف\",\"text\":\"يسعدنا دعوتكم لحفل زفاف عبد الكريم & رودي — الخميس 12 نوفمبر 2026، قاعة روفان.\",\"url\":\"https://hishamauda.github.io/abdulkarim-rody-wedding/\"}"
   },
   {
-   "group": "Music",
-   "name": "No music before the guest interacts",
+   "group": "Song",
+   "name": "No sound before the guest interacts",
    "ok": true,
    "detail": ""
+  },
+  {
+   "group": "Song",
+   "name": "Blocked autoplay: invitation still opens",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Song",
+   "name": "Blocked autoplay: no false “playing”, guest is told to use the music button",
+   "ok": true,
+   "detail": "{\"state\":\"blocked\",\"pressed\":\"false\",\"toast\":\"لتشغيل أغنية الزفاف اضغطوا زر «موسيقى»\"}"
+  },
+  {
+   "group": "Song",
+   "name": "Blocked autoplay: no page errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "Song",
+   "name": "Missing MP3: invitation works, no “playing” state, no crash",
+   "ok": true,
+   "detail": "{\"opened\":true,\"state\":\"error\",\"pressed\":\"false\"}"
   },
   {
    "group": "Keyboard",

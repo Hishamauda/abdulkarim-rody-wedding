@@ -1,6 +1,6 @@
 # QA (local) — http://127.0.0.1:8765/
 
-**90/90 checks passed** — 2026-10-31T14:25:09.537Z
+**124/124 checks passed** — 2026-10-31T17:38:06.643Z
 
 | Group | Check | Result | Detail |
 |---|---|---|---|
@@ -11,6 +11,11 @@
 | 360px | Focus moved to names heading | ✅ |  |
 | 360px | Names writing animation runs | ✅ | write, sheen |
 | 360px | Couple names fully inside the viewport (not clipped) | ✅ | [[73,287],[171,189],[95,265]] |
+| 360px | Wedding song starts with the opening tap | ✅ |  |
+| 360px | INFINITI signature texts exact | ✅ | INFINITI TECHNOLOGIES / المهندس / هشام عوده «أبو عمر» |
+| 360px | Congratulations section is the last section, after the finale, not overlapping | ✅ | congrats |
+| 360px | Congratulations section within the viewport width and fully revealed | ✅ |  |
+| 360px | Congratulations section keeps the site background (no dark/new background) | ✅ | rgba(0, 0, 0, 0) |
 | 360px | No horizontal scrolling | ✅ | scrollWidth 360 / viewport 360 |
 | 360px | No console errors | ✅ |  |
 | 360px | All assets loaded (no 4xx/5xx) | ✅ |  |
@@ -22,10 +27,15 @@
 | 390px | Focus moved to names heading | ✅ |  |
 | 390px | Names writing animation runs | ✅ | write, sheen |
 | 390px | Couple names fully inside the viewport (not clipped) | ✅ | [[79,311],[186,204],[103,287]] |
+| 390px | Wedding song starts with the opening tap | ✅ |  |
+| 390px | INFINITI signature texts exact | ✅ | INFINITI TECHNOLOGIES / المهندس / هشام عوده «أبو عمر» |
+| 390px | Congratulations section is the last section, after the finale, not overlapping | ✅ | congrats |
+| 390px | Congratulations section within the viewport width and fully revealed | ✅ |  |
+| 390px | Congratulations section keeps the site background (no dark/new background) | ✅ | rgba(0, 0, 0, 0) |
 | 390px | No horizontal scrolling | ✅ | scrollWidth 390 / viewport 390 |
 | 390px | No console errors | ✅ |  |
 | 390px | All assets loaded (no 4xx/5xx) | ✅ |  |
-| Performance | Total transfer size (390px run) | ✅ | 379 KB |
+| Performance | First load before opening (the song streams only after the tap) | ✅ | 380 KB |
 | 390px | Touch targets ≥ 44×44 px | ✅ |  |
 | 430px | Envelope scene visible on load | ✅ |  |
 | 430px | Content inert before opening | ✅ |  |
@@ -34,6 +44,11 @@
 | 430px | Focus moved to names heading | ✅ |  |
 | 430px | Names writing animation runs | ✅ | write, sheen |
 | 430px | Couple names fully inside the viewport (not clipped) | ✅ | [[87,343],[205,225],[114,316]] |
+| 430px | Wedding song starts with the opening tap | ✅ |  |
+| 430px | INFINITI signature texts exact | ✅ | INFINITI TECHNOLOGIES / المهندس / هشام عوده «أبو عمر» |
+| 430px | Congratulations section is the last section, after the finale, not overlapping | ✅ | congrats |
+| 430px | Congratulations section within the viewport width and fully revealed | ✅ |  |
+| 430px | Congratulations section keeps the site background (no dark/new background) | ✅ | rgba(0, 0, 0, 0) |
 | 430px | No horizontal scrolling | ✅ | scrollWidth 430 / viewport 430 |
 | 430px | No console errors | ✅ |  |
 | 430px | All assets loaded (no 4xx/5xx) | ✅ |  |
@@ -45,6 +60,11 @@
 | 768px | Focus moved to names heading | ✅ |  |
 | 768px | Names writing animation runs | ✅ | write, sheen |
 | 768px | Couple names fully inside the viewport (not clipped) | ✅ | [[377,627],[344,372],[141,339]] |
+| 768px | Wedding song starts with the opening tap | ✅ |  |
+| 768px | INFINITI signature texts exact | ✅ | INFINITI TECHNOLOGIES / المهندس / هشام عوده «أبو عمر» |
+| 768px | Congratulations section is the last section, after the finale, not overlapping | ✅ | congrats |
+| 768px | Congratulations section within the viewport width and fully revealed | ✅ |  |
+| 768px | Congratulations section keeps the site background (no dark/new background) | ✅ | rgba(0, 0, 0, 0) |
 | 768px | No horizontal scrolling | ✅ | scrollWidth 768 / viewport 768 |
 | 768px | No console errors | ✅ |  |
 | 768px | All assets loaded (no 4xx/5xx) | ✅ |  |
@@ -56,6 +76,11 @@
 | 1440px | Focus moved to names heading | ✅ |  |
 | 1440px | Names writing animation runs | ✅ | write, sheen |
 | 1440px | Couple names fully inside the viewport (not clipped) | ✅ | [[696,1109],[663,691],[331,658]] |
+| 1440px | Wedding song starts with the opening tap | ✅ |  |
+| 1440px | INFINITI signature texts exact | ✅ | INFINITI TECHNOLOGIES / المهندس / هشام عوده «أبو عمر» |
+| 1440px | Congratulations section is the last section, after the finale, not overlapping | ✅ | congrats |
+| 1440px | Congratulations section within the viewport width and fully revealed | ✅ |  |
+| 1440px | Congratulations section keeps the site background (no dark/new background) | ✅ | rgba(0, 0, 0, 0) |
 | 1440px | No horizontal scrolling | ✅ | scrollWidth 1440 / viewport 1440 |
 | 1440px | No console errors | ✅ |  |
 | 1440px | All assets loaded (no 4xx/5xx) | ✅ |  |
@@ -67,8 +92,8 @@
 | Date | Ceremony start = 12-11-2026 16:00 Asia/Gaza (14:00 UTC) | ✅ | 2026-11-12T14:00:00.000Z |
 | Date | Day of the week is Thursday (الخميس) | ✅ | الخميس |
 | Date | Numeric date isolated LTR (cannot flip to 2026-11-12) | ✅ | ltr 12-11-2026 |
-| Countdown | Live countdown matches time to 16:00 Gaza | ✅ | 11:23:35:13 (expected days 11) |
-| Countdown | Countdown ticks every second | ✅ | 13 → 12 |
+| Countdown | Live countdown matches time to 16:00 Gaza | ✅ | 11:20:24:17 (expected days 11) |
+| Countdown | Countdown ticks every second | ✅ | 17 → 16 |
 | Timeline | 4 approved timeline entries in order | ✅ | 4:00 مساءً بداية مراسم حفل الزفاف / 4:30 مساءً دخول العروسين / 5:00 مساءً مراسم تبديل المحابس / 5:15 مساءً فقرات حفل الزفاف |
 | Timeline | Gold line lights up progressively while scrolling | ✅ | --p 0.66 → 1.00, lit 4 |
 | Venue | Google Maps opens a text search for the venue (no invented coordinates) | ✅ | https://www.google.com/maps/search/?api=1&query=قاعة روفان، بجوار برج الشفاء، غزة |
@@ -79,10 +104,19 @@
 | Navigation | Bottom nav scrolls to the programme | ✅ |  |
 | Navigation | Active nav item announced (aria-current) | ✅ | location |
 | Navigation | Bottom nav scrolls to the venue | ✅ |  |
-| Music | Music toggles (started by the guest’s tap on “open”, button switches it) | ✅ | true → false |
+| Song | Song playing after opening (real media state, button pressed) | ✅ | {"n":1,"loop":true,"paused":false,"t":10.765178,"st":"playing","pressed":"true"} |
+| Song | Exactly one audio element, loop enabled | ✅ | {"n":1,"loop":true,"paused":false,"t":10.765178,"st":"playing","pressed":"true"} |
+| Song | Pause stops the song and the button shows it | ✅ | {"paused":true,"t":10.803849,"st":"paused","pressed":"false"} |
+| Song | Resume continues from the same position | ✅ | 10.80s → 12.11s |
+| Song | Only one sound at a time | ✅ |  |
+| Song | MP3 served (audio/mpeg) and decodable | ✅ | 200 audio/mpeg 6328370 |
 | Console | No console errors during functional run | ✅ |  |
 | Share | Web Share API used when available (title, text, url) | ✅ | {"title":"عبد الكريم & رودي — دعوة زفاف","text":"يسعدنا دعوتكم لحفل زفاف عبد الكريم & رودي — الخميس 12 نوفمبر 2026، قاعة روفان.","url":"https://hishamauda.githu |
-| Music | No music before the guest interacts | ✅ |  |
+| Song | No sound before the guest interacts | ✅ |  |
+| Song | Blocked autoplay: invitation still opens | ✅ |  |
+| Song | Blocked autoplay: no false “playing”, guest is told to use the music button | ✅ | {"state":"blocked","pressed":"false","toast":"لتشغيل أغنية الزفاف اضغطوا زر «موسيقى»"} |
+| Song | Blocked autoplay: no page errors | ✅ |  |
+| Song | Missing MP3: invitation works, no “playing” state, no crash | ✅ | {"opened":true,"state":"error","pressed":"false"} |
 | Keyboard | Invitation opens with the keyboard (Enter on focused button) | ✅ |  |
 | Keyboard | Tab reaches buttons, links and the bottom nav | ✅ | scroll-cue → mapsLink → calendarToggle → home → venue → program → shareButton → musicButton → BODY → skip-link → scroll-cue → mapsLink → calendarToggle → home |
 | Keyboard | Visible focus indicator | ✅ | solid |

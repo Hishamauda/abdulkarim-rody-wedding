@@ -138,16 +138,17 @@
     musicBtn.setAttribute('aria-pressed', String(on));
     musicBtn.setAttribute('aria-label', on ? 'إيقاف الموسيقى' : 'تشغيل الموسيقى');
   }
-  function prefOff() { try { return localStorage.getItem('wedding-music') === 'off'; } catch (e) { return false; } }
-  function setPref(v) { try { localStorage.setItem('wedding-music', v); } catch (e) {} }
+  if (Music) Music.onChange(syncMusicBtn);     // button reflects the real state of the song
   if (musicBtn) {
     if (!Music || !C.music.enabled) musicBtn.hidden = true;
     else musicBtn.addEventListener('click', function () {
-      var on = Music.toggle(); setPref(on ? 'on' : 'off'); syncMusicBtn();
-      toast(on ? 'تم تشغيل الموسيقى' : 'تم إيقاف الموسيقى');
+      if (Music.playing) { Music.pause(); toast('تم إيقاف الموسيقى'); return; }
+      Music.play(false).then(function (ok) {      // resume from the same position
+        toast(ok ? 'تم تشغيل الموسيقى' : (Music.state === 'error' ? 'تعذّر تحميل أغنية الزفاف' : 'تعذّر تشغيل الأغنية — اضغطوا زر «موسيقى» مرة أخرى'));
+      });
     });
   }
-  if (Music) Music.setVolume(C.music.volume || 0.22);
+  if (Music) Music.setVolume(C.music.volume == null ? 1 : C.music.volume);
 
   /* ------------------------------------------------ 6. envelope opening (Scene 01) */
   var scene = $('#envelopeScene'), main = $('#main'), dock = $('#dock');
@@ -176,7 +177,9 @@
   }
   function openInvitation() {
     if (opened) return; opened = true;
-    if (Music && C.music.enabled && !prefOff()) { Music.play(); syncMusicBtn(); }
+    if (Music && C.music.enabled) {               // play() is called inside the tap itself (mobile autoplay rules)
+      Music.play(true).then(function (ok) { if (!ok) toast(Music.state === 'error' ? 'تعذّر تحميل أغنية الزفاف' : 'لتشغيل أغنية الزفاف اضغطوا زر «موسيقى»'); });
+    }
     if (!scene) return finish();
     if (reduceMotion) { scene.classList.add('is-leaving'); setTimeout(finish, 60); return; }
     scene.classList.add('is-opening');

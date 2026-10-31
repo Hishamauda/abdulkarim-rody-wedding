@@ -22,7 +22,7 @@ const results = [];
 function check(group, name, ok, detail = '') { results.push({ group, name, ok: !!ok, detail: String(detail) }); }
 const VIEWPORTS = [[360, 780], [390, 844], [430, 932], [768, 1024], [1440, 900]];
 const APPROVED = [
-  'عبد الكريم', 'رودي', 'محمد عبد الكريم بستان', 'أبو عبد الكريم', 'كمال أمين النفار', 'أبو أمين',
+  'عبد الكريم', 'رودي', 'عبدالله محمد بستان', 'أبو محمد', 'كمال أمين النفار', 'أبو أمين',
   'قاعة روفان', 'غزة – بجوار برج الشفاء', 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ', 'بكل الحب والفرح', 'يتشرّف السيدان',
   'بدعوتكم لمشاركتهم فرحة زفاف ابنيهما', 'في ليلةٍ تزدان بحضوركم، وتكتمل فرحتها بلقائكم.', '12 نوفمبر 2026', '12-11-2026',
   'دعوة خاصة إلى ليلة لا تُنسى', 'افتح الدعوة', 'ليلةٌ من العمر... تكتمل بوجودكم.', '4:00 مساءً',
@@ -30,6 +30,8 @@ const APPROVED = [
   'بكل محبة وتقدير', 'لأحبتنا الصغار مكانةٌ في قلوبنا، ولأمسيتنا خصوصيتها؛ لذا نرجو أن يكون حضوركم الكريم دون اصطحاب الأطفال.',
   'شاكرين لكم تفهّمكم وتقديركم.', 'أهدونا الحب غيباً بالدعاء', 'بارك الله لنا وبارك علينا وجمع بيننا في خير.',
   'بعض الليالي لا تُنسى، لأنها تجمع من نحب.', 'وبحضوركم... تصبح ليلتنا ذكرى من العمر.', 'ننتظركم بكل محبة',
+  'بكل المحبة والتقدير', 'أسمى آيات التهاني والتبريكات', 'للعروسين عبد الكريم ورودي', 'ولعائلتيهما الكريمتين',
+  'سائلين المولى عز وجل أن يبارك لهما، ويجمع بينهما على خير، ويديم عليهما المودة والرحمة.',
 ];
 const FORBIDDEN = /هدي[ةه]|هدايا|تحويل|بنك|حساب بنكي|محفظ|QR|دفع|wallet|bank|gift|payment|iban/i;
 
@@ -64,6 +66,7 @@ for (const [vw, vh] of VIEWPORTS) {
   check(tag, 'Envelope scene visible on load', await page.isVisible('#envelopeScene'));
   check(tag, 'Content inert before opening', await page.evaluate(() => document.getElementById('main').inert === true));
   await shot(page, { path: path.join(dir, '01-envelope.png') });
+  const initialBytes = log.bytes;
   await page.click('#openInvitation');
   await settle(page, 1200);
   await shot(page, { path: path.join(dir, '02-opening.png') });
@@ -77,11 +80,26 @@ for (const [vw, vh] of VIEWPORTS) {
   await shot(page, { path: path.join(dir, '03-names.png') });
   const nb = await page.evaluate(() => [...document.querySelectorAll('.name, .names-amp')].map((e) => { const r = e.getBoundingClientRect(); return [r.left, r.right, e.textContent]; }));
   check(tag, 'Couple names fully inside the viewport (not clipped)', nb.every(([l, r]) => l >= 0 && r <= vw), JSON.stringify(nb.map((x) => [Math.round(x[0]), Math.round(x[1])])));
-  for (const id of ['invitation', 'venue', 'countdown', 'program', 'etiquette', 'prayer', 'finale']) {
+  check(tag, 'Wedding song starts with the opening tap', await page.evaluate(() => window.WeddingMusic.state === 'playing' && !document.getElementById('weddingSong').paused));
+  for (const id of ['invitation', 'venue', 'countdown', 'program', 'etiquette', 'prayer', 'finale', 'congrats']) {
     await page.evaluate((id) => document.getElementById(id).scrollIntoView({ behavior: 'instant', block: 'start' }), id);
-    await settle(page, id === 'prayer' ? 4400 : 2200);
+    await settle(page, id === 'prayer' ? 4400 : 2600);
     await shot(page, { path: path.join(dir, `${id}.png`) });
   }
+  const sig = await page.evaluate(() => {
+    const brand = document.querySelector('.infiniti-brand').textContent.replace(/\s+/g, ' ').trim();
+    const eng = document.querySelector('.infiniti-engineer').textContent.replace(/\s+/g, ' ').trim();
+    const sec = document.getElementById('congrats'), fin = document.getElementById('finale');
+    const inside = [...sec.querySelectorAll('p, h2, img')].every((e) => { const r = e.getBoundingClientRect(); return r.left >= -0.5 && r.right <= innerWidth + 0.5; });
+    const visible = [...sec.querySelectorAll('[data-reveal]')].every((e) => e.classList.contains('is-visible'));
+    return { brand, eng, inside, visible, after: sec.getBoundingClientRect().top >= fin.getBoundingClientRect().bottom - 1,
+      last: document.querySelector('main').lastElementChild.id, bg: getComputedStyle(sec).backgroundColor };
+  });
+  check(tag, 'INFINITI signature texts exact', sig.brand === 'INFINITI TECHNOLOGIES' && sig.eng === 'المهندس / هشام عوده «أبو عمر»', `${sig.brand} | ${sig.eng}`);
+  check(tag, 'Congratulations section is the last section, after the finale, not overlapping', sig.after && sig.last === 'congrats', sig.last);
+  check(tag, 'Congratulations section within the viewport width and fully revealed', sig.inside && sig.visible);
+  check(tag, 'Congratulations section keeps the site background (no dark/new background)', sig.bg === 'rgba(0, 0, 0, 0)', sig.bg);
+  if (vw === 390 || vw === 1440) await page.locator('#congrats .calm-panel').screenshot({ path: path.join(SHOTS, `infiniti-signature-${vw}.jpg`), type: 'jpeg', quality: 90 });
   const sw = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
   check(tag, 'No horizontal scrolling', sw[0] <= sw[1], `scrollWidth ${sw[0]} / viewport ${sw[1]}`);
   // full page after all reveals
@@ -90,7 +108,7 @@ for (const [vw, vh] of VIEWPORTS) {
   await shot(page, { path: path.join(dir, '00-fullpage.png'), fullPage: true });
   check(tag, 'No console errors', log.errors.length === 0, log.errors.join(' | '));
   check(tag, 'All assets loaded (no 4xx/5xx)', log.bad.length === 0, log.bad.join(' | '));
-  if (vw === 390) check('Performance', 'Total transfer size (390px run)', log.bytes < 900 * 1024, `${Math.round(log.bytes / 1024)} KB`);
+  if (vw === 390) check('Performance', 'First load before opening (the song streams only after the tap)', initialBytes < 900 * 1024, `${Math.round(initialBytes / 1024)} KB`);
   // small touch targets
   const small = await page.evaluate(() => [...document.querySelectorAll('a,button')].filter((e) => {
     if (e.closest('[hidden]') || e.classList.contains('skip-link')) return false;
@@ -109,7 +127,7 @@ for (const [vw, vh] of VIEWPORTS) {
   const missing = APPROVED.filter((t) => !body.includes(t));
   check('Content', 'Every approved Arabic text is present verbatim', missing.length === 0, missing.join(' | '));
   check('Content', 'Parents’ names and kunyas exact',
-    body.includes('محمد عبد الكريم بستان') && body.includes('«أبو عبد الكريم»') && body.includes('كمال أمين النفار') && body.includes('«أبو أمين»'));
+    body.includes('عبدالله محمد بستان') && body.includes('«أبو محمد»') && !body.includes('محمد عبد الكريم بستان') && !body.includes('أبو عبد الكريم') && body.includes('كمال أمين النفار') && body.includes('«أبو أمين»'));
   check('Content', 'No gifts / payments / bank / wallet / QR anywhere', !FORBIDDEN.test(body) && !FORBIDDEN.test(html),
     (body.match(FORBIDDEN) || html.match(FORBIDDEN) || [''])[0]);
   const bound = await page.evaluate(() => [...document.querySelectorAll('[data-text]')].map((e) => [e.dataset.text, e.textContent]));
@@ -167,11 +185,21 @@ for (const [vw, vh] of VIEWPORTS) {
   check('Navigation', 'Active nav item announced (aria-current)', cur === 'location', cur);
   await page.click('a[data-nav="venue"]'); await settle(page, 1400);
   check('Navigation', 'Bottom nav scrolls to the venue', await page.evaluate(() => { const r = document.getElementById('venue').getBoundingClientRect(); return r.top < innerHeight * 0.5 && r.bottom > 0; }));
-  // music
-  const m0 = await page.getAttribute('#musicButton', 'aria-pressed');
-  await page.click('#musicButton'); await settle(page, 300);
-  const m1 = await page.getAttribute('#musicButton', 'aria-pressed');
-  check('Music', 'Music toggles (started by the guest’s tap on “open”, button switches it)', m0 !== m1, `${m0} → ${m1}`);
+  // the wedding song
+  const sg = await page.evaluate(() => { const a = document.getElementById('weddingSong'); return { n: document.querySelectorAll('audio, video').length, loop: a.loop, paused: a.paused, t: a.currentTime, st: window.WeddingMusic.state, pressed: document.getElementById('musicButton').getAttribute('aria-pressed') }; });
+  check('Song', 'Song playing after opening (real media state, button pressed)', !sg.paused && sg.st === 'playing' && sg.t > 0 && sg.pressed === 'true', JSON.stringify(sg));
+  check('Song', 'Exactly one audio element, loop enabled', sg.n === 1 && sg.loop === true, JSON.stringify(sg));
+  await page.click('#musicButton'); await settle(page, 400);
+  const q1 = await page.evaluate(() => { const a = document.getElementById('weddingSong'); return { paused: a.paused, t: a.currentTime, st: window.WeddingMusic.state, pressed: document.getElementById('musicButton').getAttribute('aria-pressed') }; });
+  await settle(page, 1200);
+  const q1b = await page.evaluate(() => document.getElementById('weddingSong').currentTime);
+  check('Song', 'Pause stops the song and the button shows it', q1.paused && q1.st === 'paused' && q1.pressed === 'false' && Math.abs(q1b - q1.t) < 0.05, JSON.stringify(q1));
+  await page.click('#musicButton'); await settle(page, 1300);
+  const q2 = await page.evaluate(() => { const a = document.getElementById('weddingSong'); return { paused: a.paused, t: a.currentTime, pressed: document.getElementById('musicButton').getAttribute('aria-pressed') }; });
+  check('Song', 'Resume continues from the same position', !q2.paused && q2.pressed === 'true' && q2.t > q1.t + 0.5, `${q1.t.toFixed(2)}s → ${q2.t.toFixed(2)}s`);
+  check('Song', 'Only one sound at a time', await page.evaluate(() => [...document.querySelectorAll('audio, video')].filter((m) => !m.paused).length === 1));
+  const mp3 = await page.evaluate(async () => { const r = await fetch('assets/audio/abdulkarim-rody-wedding-song.mp3', { method: 'HEAD' }); return [r.status, r.headers.get('content-type'), r.headers.get('content-length')]; });
+  check('Song', 'MP3 served (audio/mpeg) and decodable', mp3[0] === 200 && /audio\/mpeg/.test(mp3[1]) && (await page.evaluate(() => document.getElementById('weddingSong').duration)) > 200, mp3.join(' '));
   check('Console', 'No console errors during functional run', log.errors.length === 0, log.errors.join(' | '));
   await ctx.close();
 }
@@ -189,7 +217,32 @@ for (const [vw, vh] of VIEWPORTS) {
 {
   const { ctx, page } = await openPage(390, 844);
   await settle(page, 1500);
-  check('Music', 'No music before the guest interacts', (await page.getAttribute('#musicButton', 'aria-pressed')) === 'false');
+  check('Song', 'No sound before the guest interacts', (await page.getAttribute('#musicButton', 'aria-pressed')) === 'false' && await page.evaluate(() => document.getElementById('weddingSong').paused));
+  await ctx.close();
+}
+// the browser blocks playback: invitation still opens, no false 'playing', guest told to use the music button
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage(); const errs = []; page.on('pageerror', (e) => errs.push(e.message));
+  await page.addInitScript(() => { HTMLMediaElement.prototype.play = function () { return Promise.reject(new DOMException('blocked by test', 'NotAllowedError')); }; });
+  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await page.click('#openInvitation'); await settle(page, 600);
+  const st = await page.evaluate(() => ({ state: window.WeddingMusic.state, pressed: document.getElementById('musicButton').getAttribute('aria-pressed'), toast: document.getElementById('toast').textContent }));
+  await settle(page, 3400);
+  check('Song', 'Blocked autoplay: invitation still opens', await page.evaluate(() => document.getElementById('envelopeScene').hidden));
+  check('Song', 'Blocked autoplay: no false “playing”, guest is told to use the music button', st.state === 'blocked' && st.pressed === 'false' && /موسيقى/.test(st.toast), JSON.stringify(st));
+  check('Song', 'Blocked autoplay: no page errors', errs.length === 0, errs.join(' | '));
+  await ctx.close();
+}
+// the MP3 fails to load: the invitation keeps working
+{
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage(); const errs = []; page.on('pageerror', (e) => errs.push(e.message));
+  await page.route('**/*.mp3', (r) => r.fulfill({ status: 404, body: 'missing' }));
+  await page.goto(BASE, { waitUntil: 'networkidle' });
+  await page.click('#openInvitation'); await settle(page, 3800);
+  const st = await page.evaluate(() => ({ opened: document.getElementById('envelopeScene').hidden, state: window.WeddingMusic.state, pressed: document.getElementById('musicButton').getAttribute('aria-pressed') }));
+  check('Song', 'Missing MP3: invitation works, no “playing” state, no crash', st.opened && st.state === 'error' && st.pressed === 'false' && errs.length === 0, JSON.stringify(st) + errs.join('|'));
   await ctx.close();
 }
 // keyboard

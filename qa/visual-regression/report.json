@@ -1,0 +1,136 @@
+{
+ "390": {
+  "envelope": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "home": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "invitation": {
+   "sameSize": true,
+   "changedPixels": 5051,
+   "ratio": 0.003836280228460323,
+   "bbox": [
+    248,
+    688,
+    534,
+    799
+   ]
+  },
+  "venue": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "countdown": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "program": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "etiquette": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "prayer": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "finale": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "dock": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  }
+ },
+ "1440": {
+  "envelope": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "home": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "invitation": {
+   "sameSize": true,
+   "changedPixels": 2089,
+   "ratio": 0.0016118827160493828,
+   "bbox": [
+    631,
+    407,
+    810,
+    472
+   ]
+  },
+  "venue": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "countdown": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "program": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "etiquette": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "prayer": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "finale": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  },
+  "dock": {
+   "sameSize": true,
+   "changedPixels": 0,
+   "ratio": 0,
+   "bbox": null
+  }
+ }
+}
