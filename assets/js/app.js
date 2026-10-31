@@ -174,6 +174,7 @@
     if (target && target.id !== 'home') target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
     else window.scrollTo(0, 0);
     var h = $('#namesHeading'); if (h) h.focus({ preventScroll: true });
+    scheduleAutoScroll();
   }
   function openInvitation() {
     if (opened) return; opened = true;
@@ -262,4 +263,46 @@
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
+
+  /* ------------------------------------------------ 9. cinematic auto scroll (after the opening)
+     Starts once the envelope has gone and the names are fully written, glides down at a
+     constant, time-based speed (independent of the screen refresh rate) to the very end,
+     and stops for good on the guest's first touch, wheel, key or click. Never runs with
+     prefers-reduced-motion. No visual change: it only moves the scroll position. */
+  var AUTO_SPEED = 13;          // px per second — slow enough to read every line
+  var AUTO_DELAY = 4200;        // ms after the opening finishes (names + date + line revealed)
+  var STOP_EVENTS = ['touchstart', 'wheel', 'pointerdown', 'mousedown', 'keydown'];
+  var auto = { timer: 0, raf: 0, active: false, done: false, y: 0, last: 0 };
+  function stopAutoScroll() {
+    if (auto.done) return;
+    auto.done = true; auto.active = false;
+    clearTimeout(auto.timer); cancelAnimationFrame(auto.raf);
+    STOP_EVENTS.forEach(function (e) { window.removeEventListener(e, stopAutoScroll, true); });
+    root.style.scrollBehavior = '';
+  }
+  function autoStep(now) {
+    if (!auto.active) return;
+    var dt = Math.min(Math.max((now - auto.last) / 1000, 0), 0.1);   // clamp: no jump after a pause
+    auto.last = now;
+    // the guest (or a link) moved the page by other means -> hand control back
+    if (Math.abs(window.scrollY - auto.y) > 4) { stopAutoScroll(); return; }
+    var max = Math.max(0, root.scrollHeight - window.innerHeight);
+    auto.y = Math.min(auto.y + AUTO_SPEED * dt, max);
+    window.scrollTo(0, auto.y);
+    if (auto.y >= max - 0.5) { stopAutoScroll(); return; }
+    auto.raf = requestAnimationFrame(autoStep);
+  }
+  function startAutoScroll() {
+    if (auto.done || auto.active || reduceMotion) return;
+    auto.active = true;
+    auto.y = window.scrollY;
+    root.style.scrollBehavior = 'auto';      // our tiny steps must not be smoothed by CSS
+    auto.raf = requestAnimationFrame(function (t) { auto.last = t; auto.raf = requestAnimationFrame(autoStep); });
+  }
+  function scheduleAutoScroll() {
+    if (reduceMotion || auto.done || auto.timer) return;
+    STOP_EVENTS.forEach(function (e) { window.addEventListener(e, stopAutoScroll, { capture: true, passive: true }); });
+    auto.timer = setTimeout(startAutoScroll, AUTO_DELAY);
+  }
+  window.__autoScroll = auto;   // read-only state for the QA script
 })();
