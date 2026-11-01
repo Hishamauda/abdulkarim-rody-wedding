@@ -269,7 +269,7 @@
      constant, time-based speed (independent of the screen refresh rate) to the very end,
      and stops for good on the guest's first touch, wheel, key or click. Never runs with
      prefers-reduced-motion. No visual change: it only moves the scroll position. */
-  var AUTO_SPEED = 13;          // px per second — slow enough to read every line
+  var AUTO_SPEED = 35;          // px per second
   var AUTO_DELAY = 4200;        // ms after the opening finishes (names + date + line revealed)
   var STOP_EVENTS = ['touchstart', 'wheel', 'pointerdown', 'mousedown', 'keydown'];
   var auto = { timer: 0, raf: 0, active: false, done: false, y: 0, last: 0 };
