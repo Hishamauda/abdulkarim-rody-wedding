@@ -102,9 +102,8 @@ window.WEDDING = {
     kunya: "أبو عمر",
   },
 
-  // صفحة INFINITI الداخلية وزر واتساب العائم (assets/js/infiniti-page.js)
+  // صفحة INFINITI الداخلية، ويفتحها زر «واتساب» في الشريط السفلي (assets/js/infiniti-page.js)
   infinitiPage: {
-    fabLabel: "INFINITI Technologies — تواصلوا معنا",
     closeLabel: "العودة إلى الدعوة",
     tagline: "Premium Digital Experiences",
     headline1: "لكل مناسبة حكاية...",

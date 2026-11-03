@@ -1,5 +1,6 @@
 /* =====================================================================
-   INFINITI Technologies — floating WhatsApp button + fullscreen brand page
+   INFINITI Technologies — fullscreen brand page, opened by the «واتساب»
+   item of the bottom dock (#whatsappButton in index.html).
    Self-contained: builds its own DOM from config.js (WEDDING.infinitiPage)
    and styles only its own .inf-* classes (assets/css/infiniti-page.css).
    While the page is open the invitation is frozen exactly where it was:
@@ -49,10 +50,9 @@
   }
   var waHref = 'https://wa.me/' + String(C.whatsappNumber).replace(/\D/g, '') + '?text=' + encodeURIComponent(C.whatsappMessage);
 
-  /* ------------------------------------------------ floating button */
-  var fab = el('button', 'inf-fab', null, { id: 'infFab', type: 'button', 'aria-haspopup': 'dialog',
-    'aria-controls': 'infinitiPage', 'aria-expanded': 'false', 'aria-label': C.fabLabel });
-  fab.innerHTML = '<span class="inf-fab-glyph">' + WA_SVG + '</span>';
+  /* ------------------------------------------------ the «واتساب» item of the bottom dock */
+  var btn = doc.getElementById('whatsappButton');
+  if (!btn) return;
 
   /* ------------------------------------------------ the page */
   var page = el('div', 'inf-page', null, { id: 'infinitiPage', role: 'dialog', 'aria-modal': 'true',
@@ -118,7 +118,6 @@
 
   [bar, hero, services, contact, sign].forEach(function (n) { scroller.appendChild(n); });
   page.appendChild(scroller);
-  body.appendChild(fab);
   body.appendChild(page);
 
   /* ------------------------------------------------ reveal (inside the page only) */
@@ -166,7 +165,7 @@
     root.style.scrollBehavior = sb;
   }
   function setOrigin() {
-    var r = fab.getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight;
+    var r = btn.getBoundingClientRect(), vw = window.innerWidth, vh = window.innerHeight;
     var x = r.width ? r.left + r.width / 2 : vw / 2, y = r.height ? r.top + r.height / 2 : vh / 2;
     page.style.setProperty('--ox', x.toFixed(1) + 'px');
     page.style.setProperty('--oy', y.toFixed(1) + 'px');
@@ -191,7 +190,7 @@
     void page.offsetWidth;              // commit the start frame of the entrance
     page.classList.add('is-open');
     root.classList.add('inf-open');
-    fab.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-expanded', 'true');
     heroItems.forEach(function (n) { n.classList.add('is-in'); });
     try { if (!(history.state && history.state.infinitiPage)) history.pushState({ infinitiPage: true }, ''); } catch (e) {}
     closeBtn.focus({ preventScroll: true });
@@ -205,7 +204,7 @@
     setInert(false);
     page.classList.remove('is-open');
     root.classList.remove('inf-open');
-    fab.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-expanded', 'false');
     setOrigin();
     page.classList.add('is-closing');
     timer = setTimeout(function () { page.hidden = true; page.classList.remove('is-closing'); }, reduceMotion ? 0 : EXIT_MS);
@@ -219,7 +218,16 @@
     } else close();
   }
 
-  fab.addEventListener('click', open);
+  // The dock slides in while the envelope is still leaving: a tap in that last second opens the
+  // page right after the opening has finished (so the opening never pulls focus out of it).
+  var scene = doc.getElementById('envelopeScene'), waiting = false;
+  btn.addEventListener('click', function () {
+    if (!scene || scene.hidden) return open();
+    if (waiting) return;
+    waiting = true;
+    var mo = new MutationObserver(function () { if (scene.hidden) { mo.disconnect(); waiting = false; open(); } });
+    mo.observe(scene, { attributes: true, attributeFilter: ['hidden'] });
+  });
   closeBtn.addEventListener('click', requestClose);
   window.addEventListener('popstate', function () { if (isOpen) close(); });
   doc.addEventListener('keydown', function (e) {
