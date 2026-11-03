@@ -304,5 +304,6 @@
     STOP_EVENTS.forEach(function (e) { window.addEventListener(e, stopAutoScroll, { capture: true, passive: true }); });
     auto.timer = setTimeout(startAutoScroll, AUTO_DELAY);
   }
+  doc.addEventListener('infiniti:open', stopAutoScroll);   // the INFINITI page stops it for good (and cancels a pending start)
   window.__autoScroll = auto;   // read-only state for the QA script
 })();
